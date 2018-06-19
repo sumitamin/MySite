@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title> Weather Information </title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+	<style type='text/css'>
+	body{
+	background-image: url(temperature.jpeg);
+	}
+	div #datepicker {
+		width:180px ;
+	}
+	.user_info{
+		width:250px;
+		background-color:black;
+		border:1px solid orange;
+		height:300px;
+		top:200px;
+		left:600px;
+		position:absolute;
+	}
+	span  .data-point{
+		color: 	#F5DEB3;
+	}
+	p{
+		text-align:center;
+		color: 	#F5DEB3;
+		text-decoration:bold;
+	}
+	
+	</style>
+</head>
+<body>
+	
+	<div class='user_info'>
+		<p><b>Welcome!<br/>Please provide below data</b></p>
+		<form method='post' action='weather.php'>
+			<span style='padding:20px;color:#F5DEB3;text-align:center;left:20px;position:absolute;' ><b>Time:</b><br/>
+				<input type='number' name='time'/>
+			<span/><br/>
+			<span style='right:30px;top:70px;position:absolute;' class='data-point' name='city'><b>City:</b><br/>
+				<input type='text'/>
+			</span><br/>
+			<span style='right:10px;top:130px;position:absolute;' class='data-point'name='date'><b>Date:</b>
+				<div id='datepicker' class="input-group date" data-provide="datepicker">
+					<input type="text" class="form-control">
+					<div class="input-group-addon">
+						<span class="glyphicon glyphicon-th"></span>
+					</div>
+				</div>
+			</span>
+			
+			<input style='top:200px;position:absolute;left:45px;' class='btn-default' type='submit'>submit</input>
+			
+		</form>
+	</div>
+	
+	<script>
+		$(function(){ 
+		$('div span.data-point_one').css('left','20px !important');
+			$('#datepicker').datepicker({
+				autoclose: true,
+				todayHighlight:true
+			}).datepicker('update', new Date())
+		});
+	</script>
+</body>
+</html>
